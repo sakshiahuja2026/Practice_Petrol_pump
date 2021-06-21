@@ -1,0 +1,461 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block extra_css %}
+    <!-- Animation Css -->
+    <link href="{% static 'plugins/animate-css/animate.css'%}" rel="stylesheet" />
+
+    <!-- Sweet Alert Css -->
+    <link href="{% static 'plugins/sweetalert/sweetalert.css'%}" rel="stylesheet" />
+
+      <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css'%}" rel="stylesheet" />
+
+    <!-- Bootstrap DatePicker Css -->
+    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css'%}" rel="stylesheet" />
+
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css'%}" rel="stylesheet" />
+
+
+{% endblock %}
+{% block body %}
+    {% comment %}<div class="block-header">
+                <h2>
+                    FORM VALIDATION
+                    <small>Taken from <a href="https://jqueryvalidation.org/" target="_blank">jqueryvalidation.org</a></small>
+                </h2>
+            </div>{% endcomment %}
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Rate Entry Form</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <form id="form_validation"  enctype="multipart/form-data" method="POST">
+                                {% csrf_token %}
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.fname %}
+                                        <label class="form-label">fname</label>
+                                         {% if form.fname.errors %}
+                                            {% for error in form.fname.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.mname %}
+                                        <label class="form-label">mname</label>
+                                         {% if form.mname.errors %}
+                                            {% for error in form.mname.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.lname %}
+                                        <label class="form-label">lname</label>
+                                         {% if form.lname.errors %}
+                                            {% for error in form.lname.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.mobile %}
+                                        <label class="form-label">mobile</label>
+                                         {% if form.mobile.errors %}
+                                            {% for error in form.mobile.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.telephone %}
+                                        <label class="form-label">telephone</label>
+                                         {% if form.telephone.errors %}
+                                            {% for error in form.telephone.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.block %}
+                                        <label class="form-label">block</label>
+                                         {% if form.block.errors %}
+                                            {% for error in form.block.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.street %}
+                                        <label class="form-label">street</label>
+                                         {% if form.street.errors %}
+                                            {% for error in form.street.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.area %}
+                                        <label class="form-label">area</label>
+                                         {% if form.area.errors %}
+                                            {% for error in form.area.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.pin %}
+                                        <label class="form-label">pin</label>
+                                         {% if form.pin.errors %}
+                                            {% for error in form.pin.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.city %}
+                                        <label class="form-label">city</label>
+                                         {% if form.city.errors %}
+                                            {% for error in form.city.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.state %}
+                                        <label class="form-label">state</label>
+                                         {% if form.state.errors %}
+                                            {% for error in form.state.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.country %}
+                                        <label class="form-label">country</label>
+                                         {% if form.country.errors %}
+                                            {% for error in form.country.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.designation %}
+                                        <label class="form-label">designation</label>
+                                         {% if form.designation.errors %}
+                                            {% for error in form.designation.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.dob 'class' 'datepicker' %}
+                                        <label class="form-label">dob </label>
+                                         {% if form.dob.errors %}
+                                            {% for error in form.dob.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.gender %}
+                                        <label class="form-label">gender</label>
+                                         {% if form.gender.errors %}
+                                            {% for error in form.gender.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.education %}
+                                        <label class="form-label">education</label>
+                                         {% if form.education.errors %}
+                                            {% for error in form.education.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.salary %}
+                                        <label class="form-label">salary</label>
+                                         {% if form.salary.errors %}
+                                            {% for error in form.salary.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.dateofjoin 'class' 'datepicker' %}
+                                        <label class="form-label">dateofjoin </label>
+                                         {% if form.dateofjoin.errors %}
+                                            {% for error in form.dateofjoin.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.shifttime 'class' 'datetimepicker form-control' %}
+                                        <label class="form-label">shifttime </label>
+                                         {% if form.shifttime.errors %}
+                                            {% for error in form.shifttime.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+    <div class="form-group form-float">
+    <div class="form-line">
+        {% crispy_field form.workinghours  %}
+        <label class="form-label">Working Hours </label>
+         {% if form.workinghours.errors %}
+            {% for error in form.workinghours.errors %}
+                <div class="invalid-feedback">
+                  {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+</div>
+<div class="form-group form-float">
+    <div class="form-line">
+        {% crispy_field form.bankname %}
+        <label class="form-label">Bank Name</label>
+         {% if form.bankname.errors %}
+            {% for error in form.bankname.errors %}
+                <div class="invalid-feedback">
+                  {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="form-group form-float">
+    <div class="form-line">
+        {% crispy_field form.bankaccountno %}
+        <label class="form-label">Bank Account Number</label>
+         {% if form.bankaccountno.errors %}
+            {% for error in form.bankaccountno.errors %}
+                <div class="invalid-feedback">
+                  {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="form-group form-float">
+    <div class="form-line">
+        {% crispy_field form.ifsccode %}
+        <label class="form-label">ifsc code</label>
+         {% if form.ifsccode.errors %}
+            {% for error in form.ifsccode.errors %}
+                <div class="invalid-feedback">
+                  {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="form-group form-float">
+    <div class="form-line">
+        {% crispy_field form.panno %}
+        <label class="form-label">Pan Number</label>
+         {% if form.panno.errors %}
+            {% for error in form.panno.errors %}
+                <div class="invalid-feedback">
+                  {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="form-group form-float">
+    <div class="form-line">
+        {% crispy_field form.aadharno %}
+        <label class="form-label">Aadhar number</label>
+         {% if form.aadharno.errors %}
+            {% for error in form.aadharno.errors %}
+                <div class="invalid-feedback">
+                  {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="form-group form-float">
+    <div class="form-line">
+        {% crispy_field form.reference %}
+        <label class="form-label">Reference</label>
+        {% if form.reference.errors %}
+            {% for error in form.reference.errors %}
+                <div class="invalid-feedback">
+                  {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+                           <div class="form-group form-float">
+    <div class="form-line">
+        {% crispy_field form.photo %}
+        <label class="form-label">Photo</label>
+        {% if form.photo.errors %}
+            {% for error in form.photo.errors %}
+                <div class="invalid-feedback">
+                  {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<div class="form-group form-float">
+    <div class="form-line">
+        {% crispy_field form.document %}
+        <label class="form-label">Document</label>
+        {% if form.document.errors %}
+            {% for error in form.document.errors %}
+                <div class="invalid-feedback">
+                  {{ error }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+
+
+                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Validation -->
+{% endblock %}
+{% block extra_js %}
+     <!-- Jquery Validation Plugin Css -->
+    <script src="{% static 'plugins/jquery-validation/jquery.validate.js'%}"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="{% static 'plugins/jquery-steps/jquery.steps.js'%}"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{% static 'plugins/sweetalert/sweetalert.min.js'%}"></script>
+
+    <script src="{% static 'js/pages/forms/form-validation.js'%}"></script>
+
+     <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{%  static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js'%}"></script>
+
+    <!-- Bootstrap Datepicker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'%}"></script>
+     <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{%  static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js'%}"></script>
+    <script>
+         $('.datepicker').bootstrapMaterialDatePicker({
+        format: 'YYYY-MM-DD',
+        clearButton: true,
+        weekStart: 1,
+        time: false
+    });
+
+    </script>
+
+{% endblock %}

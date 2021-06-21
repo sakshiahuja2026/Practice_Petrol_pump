@@ -1,0 +1,38 @@
+{% extends "users/layout.html" %}
+{% block body %}
+    <h1> Are you sure you want to delete ?</h1>
+    <form method="post">
+    {% csrf_token %}
+     <ul>
+        <li> fname : {{ object.fname }}</li>
+        <li> mname :{{ object.mname }}</li>
+        <li> lname : {{ object.lnamename}}</li>
+         <li> mobile : {{ object.mobile }}</li>
+         <li> telephone : {{ object.telephone }}</li>
+         <li> block : {{ object.block }}</li>
+         <li> street : {{ object.street }}</li>
+         <li> pin: {{ object.pin }}</li>
+         <li> city : {{ object.city }}</li>
+         <li> state : {{ object.state }}</li>
+         <li> country : {{ object.country }}</li>
+         <li> designation : {{ object.designation }}</li>
+         <li> dob : {{ object.dob }}</li>
+         <li> gender : {{ object.gender }}</li>
+         <li> education : {{ object.education }}</li>
+         <li> dateofjoin : {{ object.dateofjoin }}</li>
+         <li> shifttime : {{ object.shifttime }}</li>
+         <li> workinghours : {{ object.workinghours }}</li>
+         <li> salary : {{ object.salary }}</li>
+         <li> bankname : {{ object.bankname }}</li>
+         <li> accountno : {{ object.accountno }}</li>
+         <li> ifsccode : {{ object.ifsccode }}</li>
+         <li> panno : {{ object.panno }}</li>
+         <li> aadharno : {{ object.aadharno }}</li>
+         <li> reference : {{ object.reference }}</li>
+         <li> photo : {{ object.photo }}</li>
+         <li> document : {{ object.document }}</li>
+     </ul>
+        <input type="submit" value="delete" class="btn btn-danger">
+        <a href="{% url 'employee-view' %}" class="btn btn-info" >cancel </a>
+    </form>
+{% endblock %}

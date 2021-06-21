@@ -17,10 +17,15 @@ from django.contrib import admin
 from django.urls import path,include
 from users.views import home
 from django.contrib.auth.views import LoginView,LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home',home,name="home-page"),
     path("",LoginView.as_view(template_name='users/login.html'),name="login"),
     path("logout",LogoutView.as_view(template_name='users/logout.html'),name='logout'),
-    path("rates/",include("rates.urls"))
+    path("rates/",include("rates.urls")),
+    path("nozzel/",include("nozzel_master.urls")),
+    path("employee/",include("employee_master.urls"))
 ]
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
