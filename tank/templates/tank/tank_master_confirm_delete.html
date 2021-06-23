@@ -1,0 +1,20 @@
+{% extends "user/layout.html" %}
+{% block body %}
+    <h1> Are you sure you want to delete ?</h1>
+    <form method="post">
+    {% csrf_token %}
+     <ul>
+        <li> Date : {{ object.date }}</li>
+        <li> Petrol Before :{{ object.petrolbefore }}</li>
+        <li> Petrol After :{{ object.petrolafter }}</li>
+        <li> Petrol lost in liters :{{ object.lostpetrol }}</li>
+        <li> Petrol Lost in price :{{ object.lostpetrolprice }}</li>
+        <li> Diesel Before : {{ object.dieselbefore }}</li>
+        <li> Diesel After : {{ object.dieselafter }}</li>
+        <li> Diesel lost in liters :{{ object.lostdiesel }}</li>
+        <li> Diesel lost in price :{{ object.lostdieselprice }}</li>
+     </ul>
+        <input type="submit" value="delete" class="btn btn-danger">
+        <a href="{% url 'rate-view' %}" class="btn btn-info" >cancel </a>
+    </form>
+{% endblock %}
