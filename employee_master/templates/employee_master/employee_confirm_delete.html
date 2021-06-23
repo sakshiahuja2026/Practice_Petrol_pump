@@ -1,38 +1,159 @@
 {% extends "users/layout.html" %}
 {% block body %}
     <h1> Are you sure you want to delete ?</h1>
-    <form method="post">
-    {% csrf_token %}
-     <ul>
-        <li> fname : {{ object.fname }}</li>
-        <li> mname :{{ object.mname }}</li>
-        <li> lname : {{ object.lnamename}}</li>
-         <li> mobile : {{ object.mobile }}</li>
-         <li> telephone : {{ object.telephone }}</li>
-         <li> block : {{ object.block }}</li>
-         <li> street : {{ object.street }}</li>
-         <li> pin: {{ object.pin }}</li>
-         <li> city : {{ object.city }}</li>
-         <li> state : {{ object.state }}</li>
-         <li> country : {{ object.country }}</li>
-         <li> designation : {{ object.designation }}</li>
-         <li> dob : {{ object.dob }}</li>
-         <li> gender : {{ object.gender }}</li>
-         <li> education : {{ object.education }}</li>
-         <li> dateofjoin : {{ object.dateofjoin }}</li>
-         <li> shifttime : {{ object.shifttime }}</li>
-         <li> workinghours : {{ object.workinghours }}</li>
-         <li> salary : {{ object.salary }}</li>
-         <li> bankname : {{ object.bankname }}</li>
-         <li> accountno : {{ object.accountno }}</li>
-         <li> ifsccode : {{ object.ifsccode }}</li>
-         <li> panno : {{ object.panno }}</li>
-         <li> aadharno : {{ object.aadharno }}</li>
-         <li> reference : {{ object.reference }}</li>
-         <li> photo : {{ object.photo }}</li>
-         <li> document : {{ object.document }}</li>
-     </ul>
-        <input type="submit" value="delete" class="btn btn-danger">
-        <a href="{% url 'employee-view' %}" class="btn btn-info" >cancel </a>
-    </form>
+    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                        <div class="profile-body">
+                            <div class="image-area">
+                                <img src="{{  object.photo.url }} " height="140px" width="140px" alt="AdminBSB - Profile Image" />
+                            </div>
+                            <div class="content-area">
+                                <h3>Name: {{ object.fname }} {{ object.mname }} {{ object.lnamename}}</h3>
+                                <p>{{ object.designation }}</p>
+                            </div>
+                        </div>
+                        <div class="profile-footer">
+                            <ul>
+                                <li>
+                                    <span>address </span> <span>{{ object.block }} ,{{ object.street }} ,{{ object.area }}, {{ object.city }} , {{ object.state }},{{ object.country }}</span>
+                                </li>
+                                <li>
+                                    <span>Contact</span><span>phone:{{ object.mobile }} , {{ object.telephone }}</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card card-about-me">
+                        <div class="header">
+                            <h2>ABOUT ME</h2>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        birth-date
+                                    </div>
+                                    <div class="content">
+                                        {{ object.dob }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        gender
+                                    </div>
+                                    <div class="content">
+                                        {{ object.gender }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        education
+                                    </div>
+                                    <div class="content">
+                                        {{ object.education }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Date of join
+                                    </div>
+                                    <div class="content">
+                                        {{ object.dateofjoin }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Salary
+                                    </div>
+                                    <div class="content">
+                                        {{ object.salary }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Shift time
+                                    </div>
+                                    <div class="content">
+                                        {{ object.shifttime }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Working Hours
+                                    </div>
+                                    <div class="content">
+                                        {{ object.workinghours }}
+                                    </div>
+                                </li><li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Bank Name
+                                    </div>
+                                    <div class="content">
+                                        {{ object.bankname }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Bank Accountno
+                                    </div>
+                                    <div class="content">
+                                        {{ object.bankaccountno }}
+                                    </div>
+                                </li><li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        IFSC code
+                                    </div>
+                                    <div class="content">
+                                        {{ object.ifsccode }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Pan no
+                                    </div>
+                                    <div class="content">
+                                        {{ object.panno }}
+                                    </div>
+                                </li><li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Aadhar no
+                                    </div>
+                                    <div class="content">
+                                        {{ object.aadharno}}
+                                    </div>
+                                </li><li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Reference
+                                    </div>
+                                    <div class="content">
+                                        {{ object.reference }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Document
+                                    </div>
+                                    <div class="content">
+                                        <a href="{{ object.document.url }}">Download File</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 {% endblock %}

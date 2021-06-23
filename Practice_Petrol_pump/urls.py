@@ -26,6 +26,7 @@ urlpatterns = [
     path("logout",LogoutView.as_view(template_name='users/logout.html'),name='logout'),
     path("rates/",include("rates.urls")),
     path("nozzel/",include("nozzel_master.urls")),
-    path("employee/",include("employee_master.urls"))
+    path("employee/",include("employee_master.urls")),
+    path("tank/",include("tank.urls"))
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

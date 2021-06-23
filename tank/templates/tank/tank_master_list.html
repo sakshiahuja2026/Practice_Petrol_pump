@@ -1,4 +1,4 @@
-{% extends "users/layout.html" %}
+{% extends "user/layout.html" %}
 {% load static %}
 {% block extra_css %}
      <!-- JQuery DataTable Css -->
@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                employees  TABLE
+                                Rate  TABLE
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -32,44 +32,53 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                           <th>Fname</th>
-                                            <th>Mname</th>
-                                            <th>Lname</th>
-                                            <th>Mobile</th>
-                                            <th>Telephone</th>
+                                            <th>Date</th>
+                                            <th>Petrol before in liters</th>
+                                            <th>Petrol after in liters</th>
+                                            <th>lost petrol in liters</th>
+                                            <th>Lost petrol price</th>
+                                            <th>Diesel before in liters</th>
+                                            <th>Diesel after in liters</th>
+                                            <th>lost diesel in liters</th>
+                                            <th>Lost diesel price</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Fname</th>
-                                            <th>Mname</th>
-                                            <th>Lname</th>
-                                            <th>Mobile</th>
-                                            <th>Telephone</th>
-
-
+                                            <th>Date</th>
+                                            <th>Petrol before in liters</th>
+                                            <th>Petrol after in liters</th>
+                                            <th>lost petrol in liters</th>
+                                            <th>Lost petrol price</th>
+                                            <th>Diesel before in liters</th>
+                                            <th>Diesel after in liters</th>
+                                            <th>lost diesel in liters</th>
+                                            <th>Lost diesel price</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                    <tbody>
-                                        {% for employee in employees %}
-                                            <tr>
-                                              <td>{{ employee.fname }}</td>
-                                                    <td>{{ employee.mname }}</td>
-                                                    <td>{{ employee.lname}}</td>
-                                                    <td>{{ employee.mobile }}</td>
-                                                    <td>{{ employee.telephone }}</td>
+                                   {% for value in tank_masters %}
+                                       <tr>
+                                        <td>{{ value.date }}</td>
+                                        <td>{{ value.petrolbefore }}</td>
+                                        <td>{{ value.petrolafter }}</td>
+                                        <td>{{ value.lostpetrol }}</td>
+                                        <td>{{ value.lostpetrolprice }}</td>
+                                        <td>{{ value.dieselbefore }}</td>
+                                        <td>{{ value.dieselafter }}</td>
+                                        <td>{{ value.lostdiesel }}</td>
+                                        <td>{{ value.lostdieselprice }}</td>
 
+                                       <th>
+                                           <a href="{% url 'Tank-update'  value.id %}" class="btn btn-info"> update</a>
+                                           <a href="{% url 'Tank-delete'  value.id %}" class="btn btn-danger"> Delete</a>
+                                       </th>
 
-                                        <th>
-                                            <a href="{% url 'employee-update'  employee.id %}" class="btn btn-info"> update</a>
-                                            <a href="{% url 'employee-delete'  employee.id %}" class="btn btn-danger"> Delete</a>
-                                            <a href="{% url 'employee-detail'  employee.id %}" class="btn btn-danger"> Detail</a>
-                                        </th>
-
-                                        </tr>
-                                    {% endfor %}
-                                    </tbody>
-
+                                       </tr>
+                                   {% endfor %}
+                                   </tbody>
                                 </table>
                             </div>
                         </div>
