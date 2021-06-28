@@ -1,0 +1,59 @@
+{% extends "users/layout.html" %}
+{% block body %}
+    <h1> Are you sure you want to delete ?</h1>
+    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                        <div class="profile-body">
+                            <div class="image-area">
+                                <img src="{{  object.photo.url }} " height="140px" width="140px" alt="AdminBSB - Profile Image" />
+                            </div>
+                            <div class="content-area">
+                                <h3>Name: {{ object.fname }} {{ object.mname }} {{ object.lnamename}}</h3>
+                            </div>
+                        </div>
+                        <div class="profile-footer">
+                            <ul>
+                                <li>
+                                    <span>address </span> <span>{{ object.homeno }} ,{{ object.street }} ,{{ object.area }}, {{ object.city }} , {{ object.state }},{{ object.country }}</span>
+                                </li>
+                                <li>
+                                    <span>Contact</span><span>phone:{{ object.mobile }} , {{ object.telephone }}</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        gstno
+                                    </div>
+                                    <div class="content">
+                                        {{ object.gstno }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        pendingbalance
+                                    </div>
+                                    <div class="content">
+                                        {{ object.pendingbalance }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        creationdate
+                                    </div>
+                                    <div class="content">
+                                        {{ object.creationdate }}
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+{% endblock %}

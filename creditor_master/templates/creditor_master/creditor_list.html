@@ -1,4 +1,4 @@
-{% extends "user/layout.html" %}
+{% extends "users/layout.html" %}
 {% load static %}
 {% block extra_css %}
      <!-- JQuery DataTable Css -->
@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Rate  TABLE
+                                creditors  TABLE
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -32,53 +32,44 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th>Date</th>
-                                            <th>Petrol before in liters</th>
-                                            <th>Petrol after in liters</th>
-                                            <th>lost petrol in liters</th>
-                                            <th>Lost petrol price</th>
-                                            <th>Diesel before in liters</th>
-                                            <th>Diesel after in liters</th>
-                                            <th>lost diesel in liters</th>
-                                            <th>Lost diesel price</th>
-                                            <th>Action</th>
+                                           <th>Fname</th>
+                                            <th>Mname</th>
+                                            <th>Lname</th>
+                                            <th>Mobile</th>
+                                            <th>Officeno</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Date</th>
-                                            <th>Petrol before in liters</th>
-                                            <th>Petrol after in liters</th>
-                                            <th>lost petrol in liters</th>
-                                            <th>Lost petrol price</th>
-                                            <th>Diesel before in liters</th>
-                                            <th>Diesel after in liters</th>
-                                            <th>lost diesel in liters</th>
-                                            <th>Lost diesel price</th>
-                                            <th>Action</th>
+                                            <th>Fname</th>
+                                            <th>Mname</th>
+                                            <th>Lname</th>
+                                            <th>Mobile</th>
+                                            <th>Officeno</th>
+
+
                                         </tr>
                                     </tfoot>
                                    <tbody>
-                                   {% for value in tank_masters %}
-                                       <tr>
-                                        <td>{{ value.date }}</td>
-                                        <td>{{ value.petrolbefore }}</td>
-                                        <td>{{ value.petrolafter }}</td>
-                                        <td>{{ value.lostpetrol }}</td>
-                                        <td>{{ value.lostpetrolprice }}</td>
-                                        <td>{{ value.dieselbefore }}</td>
-                                        <td>{{ value.dieselafter }}</td>
-                                        <td>{{ value.lostdiesel }}</td>
-                                        <td>{{ value.lostdieselprice }}</td>
+                                        {% for creditor in creditors %}
+                                            <tr>
+                                              <td>{{ creditor.fname }}</td>
+                                                    <td>{{ creditor.mname }}</td>
+                                                    <td>{{ creditor.lname}}</td>
+                                                    <td>{{ creditor.mobile }}</td>
+                                                    <td>{{ creditor.officeno }}</td>
 
-                                       <th>
-                                           <a href="{% url 'Tank-update'  value.id %}" class="btn btn-info"> update</a>
-                                           <a href="{% url 'Tank-delete'  value.id %}" class="btn btn-danger"> Delete</a>
-                                       </th>
 
-                                       </tr>
-                                   {% endfor %}
-                                   </tbody>
+                                        <th>
+                                            <a href="{% url 'creditor-update'  creditor.id %}" class="btn btn-info"> update</a>
+                                            <a href="{% url 'creditor-delete'  creditor.id %}" class="btn btn-danger"> Delete</a>
+                                            <a href="{% url 'creditor-detail'  creditor.id %}" class="btn btn-danger"> Detail</a>
+                                        </th>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+
                                 </table>
                             </div>
                         </div>

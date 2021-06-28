@@ -1,6 +1,8 @@
 {% extends "users/layout.html" %}
 {% block body %}
     <h1> Are you sure you want to delete ?</h1>
+    <form method="post">
+    {% csrf_token %}
     <div class="card profile-card">
                         <div class="profile-header">&nbsp;</div>
                         <div class="profile-body">
@@ -156,4 +158,7 @@
                             </ul>
                         </div>
                     </div>
+    <input type="submit" value="delete" class="btn btn-danger">
+        <a href="{% url 'rate-view' %}" class="btn btn-info" >cancel </a>
+    </form>
 {% endblock %}

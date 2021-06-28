@@ -1,4 +1,4 @@
-{% extends "user/layout.html" %}
+{% extends "users/layout.html" %}
 {% load static %}
 {% load crispy_forms_field %}
 {% block extra_css %}
@@ -77,6 +77,19 @@
                                         <label class="form-label">Diesel Before in liters</label>
                                         {% if form.dieselbefore.errors %}
                                             {% for error in form.dieselbefore.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                              <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.petrolafter %}
+                                        <label class="form-label">Petrol After In Liters</label>
+                                        {% if form.petrolafter.errors %}
+                                            {% for error in form.petrolafter.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -187,5 +200,45 @@
     });
 
     </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded',function(){
+
+          //document.querySelector("button").on
+          document.querySelector("#id_lostpetrol").onkeyup=function(){
+
+              // fetch the rate of petrol
+              fetch("http://127.0.0.1:8000/rates/petrolprice/")
+              .then(response => response.json())
+              .then(data => {
+
+                  console.log(data.petrol_price);  //50
+                  let lostpp=document.querySelector("#id_lostpetrolprice");
+                  lostpp.value=data.petrol_price*this.value;
+
+              })
+          }
+      })
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded',function(){
+
+          //document.querySelector("button").on
+          document.querySelector("#id_lostdiesel").onkeyup=function(){
+
+              // fetch the rate of petrol
+              fetch("http://127.0.0.1:8000/rates/dieselprice/")
+              .then(response => response.json())
+              .then(data => {
+
+                  console.log(data.petrol_price);  //50
+                  let lostdp=document.querySelector("#id_lostdieselprice");
+                  lostdp.value=data.diesel_price*this.value;
+
+              })
+          }
+      })
+    </script>
+
 
 {% endblock %}

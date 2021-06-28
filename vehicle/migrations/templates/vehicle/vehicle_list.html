@@ -1,9 +1,9 @@
+
 {% extends "user/layout.html" %}
 {% load static %}
 {% block extra_css %}
      <!-- JQuery DataTable Css -->
     <link href="{% static 'plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css'%}" rel="stylesheet">
-
 {% endblock %}
 {% block body %}
                <!-- Exportable Table -->
@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Rate  TABLE
+                                VEHICLE TABLE
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -33,52 +33,34 @@
                                     <thead>
                                         <tr>
                                             <th>Date</th>
-                                            <th>Petrol before in liters</th>
-                                            <th>Petrol after in liters</th>
-                                            <th>lost petrol in liters</th>
-                                            <th>Lost petrol price</th>
-                                            <th>Diesel before in liters</th>
-                                            <th>Diesel after in liters</th>
-                                            <th>lost diesel in liters</th>
-                                            <th>Lost diesel price</th>
-                                            <th>Action</th>
+                                            <th>Vehicle No</th>
+                                            <th>Creditor Name </th>
+                                            <th>Action </th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Date</th>
-                                            <th>Petrol before in liters</th>
-                                            <th>Petrol after in liters</th>
-                                            <th>lost petrol in liters</th>
-                                            <th>Lost petrol price</th>
-                                            <th>Diesel before in liters</th>
-                                            <th>Diesel after in liters</th>
-                                            <th>lost diesel in liters</th>
-                                            <th>Lost diesel price</th>
-                                            <th>Action</th>
+                                            <th>Vehicle No</th>
+                                            <th>Creditor Name </th>
+                                            <th>Action </th>
                                         </tr>
                                     </tfoot>
                                    <tbody>
-                                   {% for value in tank_masters %}
-                                       <tr>
-                                        <td>{{ value.date }}</td>
-                                        <td>{{ value.petrolbefore }}</td>
-                                        <td>{{ value.petrolafter }}</td>
-                                        <td>{{ value.lostpetrol }}</td>
-                                        <td>{{ value.lostpetrolprice }}</td>
-                                        <td>{{ value.dieselbefore }}</td>
-                                        <td>{{ value.dieselafter }}</td>
-                                        <td>{{ value.lostdiesel }}</td>
-                                        <td>{{ value.lostdieselprice }}</td>
+                                        {% for vehicle in vehicles %}
+                                            <tr>
+                                              <td>{{ vehicle.date }}</td>
+                                                    <td>{{ vehicle.v_no }}</td>
+                                                    <td>{{ vehicle.creditor.companyname}}</td>
 
-                                       <th>
-                                           <a href="{% url 'Tank-update'  value.id %}" class="btn btn-info"> update</a>
-                                           <a href="{% url 'Tank-delete'  value.id %}" class="btn btn-danger"> Delete</a>
-                                       </th>
-
-                                       </tr>
-                                   {% endfor %}
-                                   </tbody>
+                                            <td>
+                                                <a href="{% url 'vehicle-update'  vehicle.id %}" class="btn btn-info"> update</a>
+                                                <a href="{% url 'vehicle-delete'  vehicle.id %}" class="btn btn-danger"> Delete</a>
+                                                <a href="{% url 'vehicle-detail'  vehicle.id %}" class="btn btn-danger"> Detail</a>
+                                            </td>
+                                            </tr>
+                                    {% endfor %}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -99,9 +81,7 @@
     <script src="{% static 'plugins/jquery-datatable/extensions/export/vfs_fonts.js'%}"></script>
     <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.html5.min.js'%}"></script>
     <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.print.min.js'%}"></script>
-
     <!-- Custom Js -->
     <script src="{% static 'js/admin.js'%}"></script>
     <script src="{% static 'js/pages/tables/jquery-datatable.js'%}"></script>
-
 {% endblock %}
