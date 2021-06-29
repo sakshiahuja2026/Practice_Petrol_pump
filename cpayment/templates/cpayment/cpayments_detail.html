@@ -1,0 +1,100 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block body %}
+<div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+
+
+                    </div>
+
+                    <div class="card card-about-me">
+
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        </i>Date
+                                    </div>
+                                    <div class="content">
+                                        {{ object.date }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">creditor</i>
+                                        Creditor
+                                    </div>
+                                    <div class="content">
+                                        {{ object.creditor}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">amount</i>
+                                        Amount
+                                    </div>
+                                    <div class="content">
+                                       {{ object.amount }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        type
+                                    </div>
+                                    <div class="content">
+                                        {{ object.type }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Bank name
+                                    </div>
+                                    <div class="content">
+                                        {{ object.bankname }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Branch name
+                                    </div>
+                                    <div class="content">
+                                        {{ object.branchname }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Chequeno
+                                    </div>
+                                    <div class="content">
+                                        {{ object.chequeno }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Chequedate
+                                    </div>
+                                    <div class="content">
+                                        {{ object.chequedate }}
+                                    </div>
+                                </li>
+                                li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Reference
+                                    </div>
+                                    <div class="content">
+                                        {{ object.reference }}
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+{% endblock %}

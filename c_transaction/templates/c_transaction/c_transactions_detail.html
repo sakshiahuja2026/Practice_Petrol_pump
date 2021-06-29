@@ -1,0 +1,83 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block body %}
+<div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+
+
+                    </div>
+
+                    <div class="card card-about-me">
+
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        Date
+                                    </div>
+                                    <div class="content">
+                                        {{ object.date }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">vehicle</i>
+                                        Vehicle
+                                    </div>
+                                    <div class="content">
+                                        {{ object.vehicle}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">petrol</i>
+                                        Petrol
+                                    </div>
+                                    <div class="content">
+                                       {{ object.petrol }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Diesel
+                                    </div>
+                                    <div class="content">
+                                        {{ object.diesel }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        PP
+                                    </div>
+                                    <div class="content">
+                                        {{ object.pp}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        DP
+                                    </div>
+                                    <div class="content">
+                                        {{ object.dp }}
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Nozzel
+                                    </div>
+                                    <div class="content">
+                                        {{ object.nozzel}}
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+{% endblock %}

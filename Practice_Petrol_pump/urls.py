@@ -29,6 +29,8 @@ urlpatterns = [
     path("employee/",include("employee_master.urls")),
     path("tank/",include("tank.urls")),
     path("creditor/",include("creditor_master.urls")),
-    path("vehicle/",include("vehicle.urls"))
+    path("vehicle/",include("vehicle.urls")),
+    path("c_transaction/",include("c_transaction.urls")),
+    path("cpayment/",include("cpayment.urls"))
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

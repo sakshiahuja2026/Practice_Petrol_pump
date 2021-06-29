@@ -1,4 +1,4 @@
-{% extends "user/layout.html" %}
+{% extends "users/layout.html" %}
 {% load static %}
 {% load crispy_forms_field %}
 {% block extra_css %}
@@ -31,7 +31,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>Rate Entry Form</h2>
+                            <h2>Creditor Transaction Entry Form</h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -63,10 +63,10 @@
                                 </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.v_no %}
-                                        <label class="form-label">Vehicle Number</label>
-                                         {% if form.v_no.errors %}
-                                            {% for error in form.v_no.errors %}
+                                        {% crispy_field form.vehicle %}
+                                        <label class="form-label">Vehicle</label>
+                                         {% if form.vehicle.errors %}
+                                            {% for error in form.vehicle.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -76,10 +76,10 @@
                                 </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.driver_name %}
-                                        <label class="form-label">Driver name</label>
-                                         {% if form.driver_name.errors %}
-                                            {% for error in form.driver_name.errors %}
+                                        {% crispy_field form.petrol %}
+                                        <label class="form-label">Petrol</label>
+                                         {% if form.petrol.errors %}
+                                            {% for error in form.petrol.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -89,10 +89,10 @@
                                 </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.fuel_type %}
-                                        <label class="form-label">fuel type</label>
-                                         {% if form.fuel_type.errors %}
-                                            {% for error in form.fuel_type.errors %}
+                                        {% crispy_field form.diesel %}
+                                        <label class="form-label">Diesel</label>
+                                         {% if form.diesel.errors %}
+                                            {% for error in form.diesel.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -102,10 +102,10 @@
                                 </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.remarks %}
-                                        <label class="form-label">remarks</label>
-                                         {% if form.remarks.errors %}
-                                            {% for error in form.remarks.errors %}
+                                        {% crispy_field form.pp %}
+                                        <label class="form-label">PP</label>
+                                         {% if form.pp.errors %}
+                                            {% for error in form.pp.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -115,10 +115,10 @@
                                 </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.creditor %}
-                                        <label class="form-label">creditor</label>
-                                         {% if form.creditor.errors %}
-                                            {% for error in form.creditor.errors %}
+                                        {% crispy_field form.dp %}
+                                        <label class="form-label">DP</label>
+                                         {% if form.dp.errors %}
+                                            {% for error in form.dp.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -126,6 +126,20 @@
                                         {% endif %}
                                     </div>
                                 </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.nozzel %}
+                                        <label class="form-label">nozzel</label>
+                                         {% if form.nozzel.errors %}
+                                            {% for error in form.nozzel.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+
 
                                 <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
@@ -166,5 +180,42 @@
     });
 
     </script>
+<script>
+      document.addEventListener('DOMContentLoaded',function(){
 
+          //document.querySelector("button").on
+          document.querySelector("#id_petrol").onkeyup=function(){
+
+              // fetch the rate of petrol
+              fetch("http://127.0.0.1:8000/rates/petrolprice/")
+              .then(response => response.json())
+              .then(data => {
+
+                  console.log(data.petrol_price);  //50
+                  let pp=document.querySelector("#id_pp");
+                  pp.value=data.petrol_price*this.value;
+
+              })
+          }
+      })
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded',function(){
+
+          //document.querySelector("button").on
+          document.querySelector("#id_diesel").onkeyup=function(){
+
+              // fetch the rate of petrol
+              fetch("http://127.0.0.1:8000/rates/dieselprice/")
+              .then(response => response.json())
+              .then(data => {
+
+                  console.log(data.diesel_price);  //50
+                  let dp=document.querySelector("#id_dp");
+                  dp.value=data.diesel_price*this.value;
+
+              })
+          }
+      })
+    </script>
 {% endblock %}

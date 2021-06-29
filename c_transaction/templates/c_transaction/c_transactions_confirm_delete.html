@@ -1,8 +1,9 @@
-{% extends "user/layout.html" %}
-{% load static %}
-{% load crispy_forms_field %}
+{% extends "users/layout.html" %}
 {% block body %}
-<div class="card profile-card">
+    <h1> Are you sure you want to delete ?</h1>
+    <form method="post">
+    {% csrf_token %}
+    <div class="card profile-card">
                         <div class="profile-header">&nbsp;</div>
 
 
@@ -14,7 +15,7 @@
                             <ul>
                                 <li>
                                     <div class="title">
-                                        <i class="fa fa-birthday-cake"></i>Date
+                                        Date
                                     </div>
                                     <div class="content">
                                         {{ object.date }}
@@ -22,47 +23,56 @@
                                 </li>
                                 <li>
                                     <div class="title">
-                                        <i class="material-icons">location_on</i>
-                                        Vehicle Number
+                                        <i class="material-icons"></i>
+                                        Vehicle
                                     </div>
                                     <div class="content">
-                                        {{ object.v_no }}
+                                        {{ object.vehicle }}
                                     </div>
                                 </li>
                                 <li>
                                     <div class="title">
-                                        <i class="material-icons">edit</i>
-                                        Driver Name
+                                        <i class="material-icons">petrol</i>
+                                        Petrol
                                     </div>
                                     <div class="content">
-                                       {{ object.driver_name }}
+                                       {{ object.petrol }}
                                     </div>
                                 </li>
                                 <li>
                                     <div class="title">
                                         <i class="material-icons"></i>
-                                        fuel type
+                                        diesel
                                     </div>
                                     <div class="content">
-                                        {{ object.fuel_type }}
+                                        {{ object.diesel}}
                                     </div>
                                 </li>
                                 <li>
                                     <div class="title">
                                         <i class="material-icons"></i>
-                                        Remarks
+                                        PP
                                     </div>
                                     <div class="content">
-                                        {{ object.remarks }}
+                                        {{ object.pp }}
                                     </div>
                                 </li>
                                 <li>
                                     <div class="title">
                                         <i class="material-icons"></i>
-                                        Creditor
+                                        DP
                                     </div>
                                     <div class="content">
-                                        {{ object.creditor }}
+                                        {{ object.dp }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Nozzel
+                                    </div>
+                                    <div class="content">
+                                        {{ object.nozzel }}
                                     </div>
                                 </li>
 
@@ -71,4 +81,7 @@
                             </ul>
                         </div>
                     </div>
+        <input type="submit" value="delete" class="btn btn-danger">
+        <a href="{% url 'employee-view' %}" class="btn btn-info" >cancel </a>
+    </form>
 {% endblock %}

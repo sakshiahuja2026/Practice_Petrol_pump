@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'employee_master',
     'tank',
     'creditor_master',
+    'c_transaction',
+    'cpayment',
     'vehicle',
     'crispy_forms',
     'users.apps.UsersConfig',
