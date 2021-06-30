@@ -1,0 +1,121 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% block extra_css %}
+     <!-- JQuery DataTable Css -->
+    <link href="{% static 'plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css' %}" rel="stylesheet">
+
+{% endblock %}
+{% block body %}
+               <!-- Exportable Table -->
+ <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                emp_paydetails  TABLE
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                           <th>Date</th>
+                                            <th>Employee_id</th>
+                                            <th>Amount</th>
+                                            <th>type</th>
+                                            <th>cheque_no</th>
+                                            <th>cheque_date</th>
+                                            <th>bank name</th>
+                                            <th>branch name</th>
+                                            <th>account no</th>
+                                            <th>IFSC code</th>
+                                            <th>final salary</th>
+                                            <td>reference</td>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Employee_id</th>
+                                            <th>Amount</th>
+                                            <th>type</th>
+                                            <th>cheque_no</th>
+                                            <th>cheque_date</th>
+                                            <th>bank name</th>
+                                            <th>branch name</th>
+                                            <th>account no</th>
+                                            <th>IFSC code</th>
+                                            <th>final salary</th>
+                                            <th>reference</th>
+                                            <th>Action</th>
+
+
+                                        </tr>
+                                    </tfoot>
+                                   <tbody>
+                                        {% for emp_paydetail in emp_paydetails %}
+                                            <tr>
+                                              <td>{{ emp_paydetail.date }}</td>
+{#                                                  <td>{{emp_paydetail.employee_id }}</td>
+                                                    <td>{{emp_paydetail.amount}}</td>
+                                                    <td>{{emp_paydetail.type }}</td>
+                                                    <td>{{emp_paydetail.bankname }}</td>
+                                                    <td>{{emp_paydetail.branchname }}</td>
+                                                    <td>{{emp_paydetail.cheque_no }}</td>
+                                                    <td>{{emp_paydetail.cheque_date}}</td>
+                                                    <td>{{emp_paydetail.account_no}}</td>
+                                                    <td>{{emp_paydetail.IFSCcode}}</td>
+                                                    <td>{{emp_paydetail.final_salary}}</td>
+                                                    <td>{{ emp_paydetail.reference}}</td>
+
+
+                                        <th>
+                                            <a href="{% url 'emp_paydetail-update'  emp_paydetail.id %}" class="btn btn-info"> update</a>
+                                            <a href="{% url 'emp_paydetail-delete'  emp_paydetail.id %}" class="btn btn-danger"> Delete</a>
+                                            <a href="{% url 'emp_paydetail-detail'  emp_paydetail.id %}" class="btn btn-danger"> Detail</a>
+                                        </th>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
+        </div>
+{% endblock %}
+{% block extra_js %}
+      <!-- Jquery DataTable Plugin Js -->
+    <script src="{% static 'plugins/jquery-datatable/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js' %}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.flash.min.js' %}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/jszip.min.js' %}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/pdfmake.min.js' %}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/vfs_fonts.js' %}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.print.min.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/admin.js' %}"></script>
+    <script src="{% static 'js/pages/tables/jquery-datatable.js' %}"></script>
+
+{% endblock %}

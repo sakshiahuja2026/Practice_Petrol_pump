@@ -4,8 +4,6 @@
 {% block extra_css %}
     <!-- Animation Css -->
     <link href="{% static 'plugins/animate-css/animate.css'%}" rel="stylesheet" />
- <!-- Bootstrap Select Css -->
-    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet" />
 
     <!-- Sweet Alert Css -->
     <link href="{% static 'plugins/sweetalert/sweetalert.css'%}" rel="stylesheet" />
@@ -16,22 +14,21 @@
     <!-- Bootstrap DatePicker Css -->
     <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css'%}" rel="stylesheet" />
 
-    <!-- Bootstrap Material Datetime Picker Css -->
-    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css'%}" rel="stylesheet" />
+
 {% endblock %}
 {% block body %}
-    {% comment %}<div class="block-header">
-                <h2>
-                    FORM VALIDATION
-                    <small>Taken from <a href="https://jqueryvalidation.org/" target="_blank">jqueryvalidation.org</a></small>
-                </h2>
-            </div>{% endcomment %}
+{#    <div class="block-header">#}
+{#                <h2>#}
+{#                    FORM VALIDATION#}
+{#                    <small>Taken from <a href="https://jqueryvalidation.org/" target="_blank">jqueryvalidation.org</a></small>#}
+{#                </h2>#}
+{#            </div>#}
             <!-- Basic Validation -->
-            <div class="row clearfix">
+                        <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>Creditor payment Entry Form</h2>
+                            <h2>Rate Entry Form</h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -46,12 +43,12 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form id="form_validation"  enctype="multipart/form-data" method="POST">
+                            <form id="form_validation" method="POST">
                                 {% csrf_token %}
-                            <div class="form-group form-float">
+                                <div class="form-group form-float">
                                     <div class="form-line">
                                         {% crispy_field form.date 'class' 'datepicker' %}
-                                        <label class="form-label">Date</label>
+                                        <label class="form-label">Date </label>
                                          {% if form.date.errors %}
                                             {% for error in form.date.errors %}
                                                 <div class="invalid-feedback">
@@ -63,10 +60,36 @@
                                 </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.creditor %}
-                                        <label class="form-label">Creditor </label>
-                                         {% if form.creditor.errors %}
-                                            {% for error in form.creditor.errors %}
+                                        {% crispy_field form.receipt_no %}
+                                        <label class="form-label">receipt_no</label>
+                                         {% if form.receipt_no.errors %}
+                                            {% for error in form.receipt_no.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.petrolbefore %}
+                                        <label class="form-label">Petrol Before in liters</label>
+                                         {% if form.petrolbefore.errors %}
+                                            {% for error in form.petrolbefore.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.dieselbefore %}
+                                        <label class="form-label">Diesel Before in liters</label>
+                                        {% if form.dieselbefore.errors %}
+                                            {% for error in form.dieselbefore.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -76,10 +99,10 @@
                                 </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.amount %}
-                                        <label class="form-label">Amount</label>
-                                         {% if form.amount.errors %}
-                                            {% for error in form.amount.errors %}
+                                        {% crispy_field form.time 'class' 'time12' %}
+                                        <label class="form-label">Time</label>
+                                        {% if form.time.errors %}
+                                            {% for error in form.time.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -87,25 +110,12 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                            <div class="form-group form-float">
-                                    <label class="form-label">Type</label>
-                                        {% crispy_field form.type %}
-
-                                         {% if form.type.errors %}
-                                            {% for error in form.type.errors %}
-                                                <div class="invalid-feedback">
-                                                  {{ error }}
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-
-                                </div>
-                            <div class="form-group form-float" id="bankname">
+                              <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.bankname %}
-                                        <label class="form-label">bank name</label>
-                                         {% if form.bankname.errors %}
-                                            {% for error in form.bankname.errors %}
+                                        {% crispy_field form.petrolloss %}
+                                        <label class="form-label">Petrol loss Liters</label>
+                                        {% if form.petrolloss.errors %}
+                                            {% for error in form.petrolafter.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -113,12 +123,12 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                            <div class="form-group form-float" id="chequeno">
+                                <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.chequeno %}
-                                        <label class="form-label">chequeno</label>
-                                         {% if form.chequeno.errors %}
-                                            {% for error in form.chequeno.errors %}
+                                        {% crispy_field form.dieselloss %}
+                                        <label class="form-label">Diesel loss in Liters</label>
+                                        {% if form.dieselloss.errors %}
+                                            {% for error in form.dieselloss.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -126,12 +136,12 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                                <div class="form-group form-float" id="branchname">
+                                <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.branchname %}
-                                        <label class="form-label">branchname</label>
-                                         {% if form.branchname.errors %}
-                                            {% for error in form.branchname.errors %}
+                                        {% crispy_field form.transportation_inr %}
+                                        <label class="form-label">transportation_inr</label>
+                                        {% if form.transportation_inr.errors %}
+                                            {% for error in form.transportation_inr.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -139,33 +149,6 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                                <div class="form-group form-float" id="chequedate">
-                                    <div class="form-line">
-                                        {% crispy_field form.chequedate 'class' 'datepicker' %}
-                                        <label class="form-label">Cheque Date</label>
-                                         {% if form.chequedate.errors %}
-                                            {% for error in form.chequedate.errors %}
-                                                <div class="invalid-feedback">
-                                                  {{ error }}
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="form-group form-float" id="reference">
-                                    <div class="form-line">
-                                        {% crispy_field form.reference %}
-                                        <label class="form-label">reference </label>
-                                         {% if form.reference.errors %}
-                                            {% for error in form.reference.errors %}
-                                                <div class="invalid-feedback">
-                                                  {{ error }}
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                </div>
-
                                 <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
                         </div>
@@ -175,28 +158,6 @@
             <!-- #END# Basic Validation -->
 {% endblock %}
 {% block extra_js %}
-     <!-- Select Plugin Js -->
-    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js'%}"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="{% static 'plugins/node-waves/waves.js'%}"></script>
-
-    <!-- Autosize Plugin Js -->
-    <script src="{% static 'plugins/autosize/autosize.js'%}"></script>
-
-    <!-- Moment Plugin Js -->
-    <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
-
-
-    <!-- Custom Js -->
-    <script src="{% static 'js/admin.js'%}"></script>
-    <script src="{% static 'js/pages/forms/basic-form-elements.js'%}"></script>
-
-    <!-- Demo Js -->
-    <script src="{% static 'js/demo.js'%}"></script>
      <!-- Jquery Validation Plugin Css -->
     <script src="{% static 'plugins/jquery-validation/jquery.validate.js'%}"></script>
 
@@ -216,8 +177,6 @@
 
     <!-- Bootstrap Datepicker Plugin Js -->
     <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'%}"></script>
-     <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="{%  static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js'%}"></script>
     <script>
          $('.datepicker').bootstrapMaterialDatePicker({
         format: 'YYYY-MM-DD',
@@ -225,45 +184,5 @@
         weekStart: 1,
         time: false
     });
-
     </script>
-    <script>
-         document.addEventListener('DOMContentLoaded',function(){
-
-             document.querySelector("#id_type").onchange=function(){
-
-
-                 if(this.value == 'bank')
-                 {
-                     document.querySelector("#bankname").style.display='block';
-                     document.querySelector("#branchname").style.display='block';
-                     document.querySelector("#chequeno").style.display='block';
-                     document.querySelector("#chequedate").style.display='block';
-                     document.querySelector("#reference").style.display='none';
-                 }
-                 else if(this.value == 'cash')
-                 {
-                     document.querySelector("#bankname").style.display='none';
-                     document.querySelector("#branchname").style.display='none';
-                     document.querySelector("#chequeno").style.display='none';
-                     document.querySelector("#chequedate").style.display='none';
-                     document.querySelector("#reference").style.display='none';
-
-                 }
-                 else
-                 {
-                     document.querySelector("#reference").style.display='block';
-                     document.querySelector("#bankname").style.display='none';
-                     document.querySelector("#branchname").style.display='none';
-                     document.querySelector("#chequeno").style.display='none';
-                     document.querySelector("#chequedate").style.display='none';
-
-
-                 }
-
-             }
-         })
-    </script>
-
-
 {% endblock %}

@@ -1,0 +1,150 @@
+{% extends "users/layout.html" %}
+{% block body %}
+    <h1> Are you sure you want to delete ?</h1>
+    <form method="post">
+    {% csrf_token %}
+    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                        <div class="profile-body">
+                            <div class="image-area">
+                                <img src="{{  object.photo.url }} " height="140px" width="140px" alt="AdminBSB - Profile Image" />
+                            </div>
+                            <div class="content-area">
+                                <h3>Name: {{ object.fname }} {{ object.mname }} {{ object.lnamename}}</h3>
+                                <p>{{ object.designation }}</p>
+                            </div>
+                        </div>
+                        <div class="profile-footer">
+                            <ul>
+                                <li>
+                                    <span>address </span> <span>{{ object.block }} ,{{ object.street }} ,{{ object.area }}, {{ object.city }} , {{ object.state }},{{ object.country }}</span>
+                                </li>
+                                <li>
+                                    <span>Contact</span><span>phone:{{ object.mobile }} , {{ object.telephone }}</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card card-about-me">
+                        <div class="header">
+                            <h2>ABOUT ME</h2>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        </i>Date
+                                    </div>
+                                    <div class="content">
+                                        {{ object.date }}
+                                    </div>
+                                </li>
+                                <li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        employee_id
+                                    </div>
+                                    <div class="content">
+                                        {{ object.employee_id }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        amount
+                                    </div>
+                                    <div class="content">
+                                        {{ object.amount }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        type
+                                    </div>
+                                    <div class="content">
+                                        {{ object.type }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        cheque_no
+                                    </div>
+                                    <div class="content">
+                                        {{ object.cheque_no }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        cheque_date
+                                    </div>
+                                    <div class="content">
+                                        {{ object.cheque_date}}
+                                    </div>
+                                </li>
+                                    <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Bank Name
+                                    </div>
+                                    <div class="content">
+                                        {{ object.bankname }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        branchname
+                                    </div>
+                                    <div class="content">
+                                        {{ object.branchname  }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                         Accountno
+                                    </div>
+                                    <div class="content">
+                                        {{ object.account_no }}
+                                    </div>
+                                </li><li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        IFSC code
+                                    </div>
+                                    <div class="content">
+                                        {{ object.IFSCcode }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Final Salary
+                                    </div>
+                                    <div class="content">
+                                        {{ object.final_salary }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Reference
+                                    </div>
+                                    <div class="content">
+                                        {{ object.reference }}
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+    <input type="submit" value="delete" class="btn btn-danger">
+        <a href="{% url 'rate-view' %}" class="btn btn-info" >cancel </a>
+    </form>
+{% endblock %}

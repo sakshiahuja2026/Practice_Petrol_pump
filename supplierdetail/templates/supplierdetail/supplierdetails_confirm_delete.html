@@ -1,0 +1,98 @@
+{% extends "users/layout.html" %}
+{% block body %}
+    <h1> Are you sure you want to delete ?</h1>
+    <form method="post">
+    {% csrf_token %}
+    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+
+
+                    </div>
+
+                    <div class="card card-about-me">
+
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        </i>Date
+                                    </div>
+                                    <div class="content">
+                                        {{ object.date }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">receipt_no</i>
+                                        receipt_no
+                                    </div>
+                                    <div class="content">
+                                        {{ object.receipt_no}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">petrolbefore</i>
+                                        petrolbefore
+                                    </div>
+                                    <div class="content">
+                                       {{ object.petrolbefore }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        diesellbefore
+                                    </div>
+                                    <div class="content">
+                                        {{ object.diesellbefore }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">access_time</i>
+                                        time
+                                    </div>
+                                    <div class="content">
+                                        {{ object.time }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        petrolloss
+                                    </div>
+                                    <div class="content">
+                                        {{ object.petrolloss }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        dieselloss
+                                    </div>
+                                    <div class="content">
+                                        {{ object.dieselloss }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        transportation_inr
+                                    </div>
+                                    <div class="content">
+                                        {{ object.transportation_inr }}
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+
+                            </ul>
+                        </div>
+                    </div>
+        <input type="submit" value="delete" class="btn btn-danger">
+        <a href="{% url 'employee-view' %}" class="btn btn-info" >cancel </a>
+    </form>
+{% endblock %}

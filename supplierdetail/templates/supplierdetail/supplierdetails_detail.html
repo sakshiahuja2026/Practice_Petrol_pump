@@ -1,0 +1,88 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block body %}
+<div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                    </div>
+                    <div class="card card-about-me">
+
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        </i>Date
+                                    </div>
+                                    <div class="content">
+                                        {{ object.date }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">receipt_no</i>
+                                        receipt_no
+                                    </div>
+                                    <div class="content">
+                                        {{ object.receipt_no}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">petrolbefore</i>
+                                        petrolbefore
+                                    </div>
+                                    <div class="content">
+                                       {{ object.petrolbefore }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        diesellbefore
+                                    </div>
+                                    <div class="content">
+                                        {{ object.diesellbefore }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">access_time</i>
+                                        time
+                                    </div>
+                                    <div class="content">
+                                        {{ object.time }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        petrolloss
+                                    </div>
+                                    <div class="content">
+                                        {{ object.petrolloss }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        dieselloss
+                                    </div>
+                                    <div class="content">
+                                        {{ object.dieselloss }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        transportation_inr
+                                    </div>
+                                    <div class="content">
+                                        {{ object.transportation_inr }}
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+{% endblock %}

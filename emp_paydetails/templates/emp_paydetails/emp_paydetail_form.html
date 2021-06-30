@@ -3,21 +3,21 @@
 {% load crispy_forms_field %}
 {% block extra_css %}
     <!-- Animation Css -->
-    <link href="{% static 'plugins/animate-css/animate.css'%}" rel="stylesheet" />
+    <link href="{% static 'plugins/animate-css/animate.css' %}" rel="stylesheet" />
  <!-- Bootstrap Select Css -->
-    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet" />
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
 
     <!-- Sweet Alert Css -->
-    <link href="{% static 'plugins/sweetalert/sweetalert.css'%}" rel="stylesheet" />
+    <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" />
 
       <!-- Bootstrap Material Datetime Picker Css -->
-    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css'%}" rel="stylesheet" />
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
 
     <!-- Bootstrap DatePicker Css -->
-    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css'%}" rel="stylesheet" />
+    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
 
     <!-- Bootstrap Material Datetime Picker Css -->
-    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css'%}" rel="stylesheet" />
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
 {% endblock %}
 {% block body %}
     {% comment %}<div class="block-header">
@@ -31,7 +31,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>Creditor payment Entry Form</h2>
+                            <h2>employee payment detail  Entry Form</h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -63,10 +63,10 @@
                                 </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.creditor %}
-                                        <label class="form-label">Creditor </label>
-                                         {% if form.creditor.errors %}
-                                            {% for error in form.creditor.errors %}
+                                        {% crispy_field form.employee_id %}
+                                        <label class="form-label">employee_id </label>
+                                         {% if form.employee_id.errors %}
+                                            {% for error in form.employee_id.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -80,6 +80,19 @@
                                         <label class="form-label">Amount</label>
                                          {% if form.amount.errors %}
                                             {% for error in form.amount.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <div class="form-group form-float" >
+                                    <div class="form-line">
+                                        {% crispy_field form.final_salary %}
+                                        <label class="form-label">final_salary</label>
+                                         {% if form.final_salary.errors %}
+                                            {% for error in form.final_salary.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -115,10 +128,10 @@
                                 </div>
                             <div class="form-group form-float" id="chequeno">
                                     <div class="form-line">
-                                        {% crispy_field form.chequeno %}
-                                        <label class="form-label">chequeno</label>
-                                         {% if form.chequeno.errors %}
-                                            {% for error in form.chequeno.errors %}
+                                        {% crispy_field form.cheque_no %}
+                                        <label class="form-label">cheque_no</label>
+                                         {% if form.cheque_no.errors %}
+                                            {% for error in form.cheque_no.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -139,12 +152,12 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                                <div class="form-group form-float" id="chequedate">
+                            <div class="form-group form-float" id="accountno">
                                     <div class="form-line">
-                                        {% crispy_field form.chequedate 'class' 'datepicker' %}
-                                        <label class="form-label">Cheque Date</label>
-                                         {% if form.chequedate.errors %}
-                                            {% for error in form.chequedate.errors %}
+                                        {% crispy_field form.account_no %}
+                                        <label class="form-label">account_no</label>
+                                         {% if form.account_no.errors %}
+                                            {% for error in form.account_no.errors %}
                                                 <div class="invalid-feedback">
                                                   {{ error }}
                                                 </div>
@@ -152,7 +165,36 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                                <div class="form-group form-float" id="reference">
+                            
+                            
+                                <div class="form-group form-float" id="chequedate">
+                                    <div class="form-line">
+                                        {% crispy_field form.cheque_date 'class' 'datepicker' %}
+                                        <label class="form-label">Cheque Date</label>
+                                         {% if form.cheque_date.errors %}
+                                            {% for error in form.cheque_date.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="IFSCcode">
+                                    <div class="form-line">
+                                        {% crispy_field form.IFSCcode %}
+                                        <label class="form-label">IFSCcode</label>
+                                         {% if form.IFSCcode.errors %}
+                                            {% for error in form.IFSCcode.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                            <div class="form-group form-float" id="reference">
                                     <div class="form-line">
                                         {% crispy_field form.reference %}
                                         <label class="form-label">reference </label>
@@ -166,6 +208,7 @@
                                     </div>
                                 </div>
 
+
                                 <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
                         </div>
@@ -176,48 +219,48 @@
 {% endblock %}
 {% block extra_js %}
      <!-- Select Plugin Js -->
-    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js'%}"></script>
+    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
+    <script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="{% static 'plugins/node-waves/waves.js'%}"></script>
+    <script src="{% static 'plugins/node-waves/waves.js' %}"></script>
 
     <!-- Autosize Plugin Js -->
-    <script src="{% static 'plugins/autosize/autosize.js'%}"></script>
+    <script src="{% static 'plugins/autosize/autosize.js' %}"></script>
 
     <!-- Moment Plugin Js -->
-    <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
+    <script src="{% static 'plugins/momentjs/moment.js' %}"></script>
 
 
     <!-- Custom Js -->
-    <script src="{% static 'js/admin.js'%}"></script>
-    <script src="{% static 'js/pages/forms/basic-form-elements.js'%}"></script>
+    <script src="{% static 'js/admin.js' %}"></script>
+    <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>
 
     <!-- Demo Js -->
-    <script src="{% static 'js/demo.js'%}"></script>
+    <script src="{% static 'js/demo.js' %}"></script>
      <!-- Jquery Validation Plugin Css -->
-    <script src="{% static 'plugins/jquery-validation/jquery.validate.js'%}"></script>
+    <script src="{% static 'plugins/jquery-validation/jquery.validate.js' %}"></script>
 
     <!-- JQuery Steps Plugin Js -->
-    <script src="{% static 'plugins/jquery-steps/jquery.steps.js'%}"></script>
+    <script src="{% static 'plugins/jquery-steps/jquery.steps.js' %}"></script>
 
     <!-- Sweet Alert Plugin Js -->
-    <script src="{% static 'plugins/sweetalert/sweetalert.min.js'%}"></script>
+    <script src="{% static 'plugins/sweetalert/sweetalert.min.js' %}"></script>
 
-    <script src="{% static 'js/pages/forms/form-validation.js'%}"></script>
+    <script src="{% static 'js/pages/forms/form-validation.js' %}"></script>
 
      <!-- Moment Plugin Js -->
-    <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
+    <script src="{% static 'plugins/momentjs/moment.js' %}"></script>
 
     <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="{%  static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js'%}"></script>
+    <script src="{%  static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>
 
     <!-- Bootstrap Datepicker Plugin Js -->
-    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'%}"></script>
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
      <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="{%  static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js'%}"></script>
+    <script src="{%  static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>
     <script>
          $('.datepicker').bootstrapMaterialDatePicker({
         format: 'YYYY-MM-DD',
@@ -239,6 +282,8 @@
                      document.querySelector("#branchname").style.display='block';
                      document.querySelector("#chequeno").style.display='block';
                      document.querySelector("#chequedate").style.display='block';
+                     document.querySelector("#IFSCcode").style.display='block';
+                     document.querySelector("#accountno").style.display='block';
                      document.querySelector("#reference").style.display='none';
                  }
                  else if(this.value == 'cash')
@@ -247,16 +292,20 @@
                      document.querySelector("#branchname").style.display='none';
                      document.querySelector("#chequeno").style.display='none';
                      document.querySelector("#chequedate").style.display='none';
+                     document.querySelector("#IFSCcode").style.display='none';
+                     document.querySelector("#accountno").style.display='none';
                      document.querySelector("#reference").style.display='none';
 
                  }
                  else
                  {
-                     document.querySelector("#reference").style.display='block';
+                     document.querySelector("#IFSCcode").style.display='none';
                      document.querySelector("#bankname").style.display='none';
                      document.querySelector("#branchname").style.display='none';
                      document.querySelector("#chequeno").style.display='none';
                      document.querySelector("#chequedate").style.display='none';
+                     document.querySelector("#accountno").style.display='none';
+                     document.querySelector("#reference").style.display='block';
 
 
                  }
