@@ -1,0 +1,105 @@
+{% extends "users/layout.html" %}
+{% block body %}
+    <h1> Are you sure you want to delete ?</h1>
+    <form method="post">
+    {% csrf_token %}
+    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+
+
+                    </div>
+
+                    <div class="card card-about-me">
+
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        Date
+                                    </div>
+                                    <div class="content">
+                                        {{ object.date }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">ptank_open</i>
+                                        ptank_open
+                                    </div>
+                                    <div class="content">
+                                        {{ object.ptank_open}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">ptank_close</i>
+                                        ptank_close
+                                    </div>
+                                    <div class="content">
+                                       {{ object.ptank_close }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        dtank_open
+                                    </div>
+                                    <div class="content">
+                                        {{ object.dtank_open }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        dtank_close
+                                    </div>
+                                    <div class="content">
+                                        {{ object.dtank_close}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        totalpetrol
+                                    </div>
+                                    <div class="content">
+                                        {{ object.totalpetrol }}
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        totaldiesel
+                                    </div>
+                                    <div class="content">
+                                        {{ object.totaldiesel}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        lostpetrol
+                                    </div>
+                                    <div class="content">
+                                        {{ object.lostpetrol }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        lostpetrol
+                                    </div>
+                                    <div class="content">
+                                        {{ object.lostpetrol }}
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+        <input type="submit" value="delete" class="btn btn-danger">
+        <a href="{% url 'employee-view' %}" class="btn btn-info" >cancel </a>
+    </form>
+{% endblock %}

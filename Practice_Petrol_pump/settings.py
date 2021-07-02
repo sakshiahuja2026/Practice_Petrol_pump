@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'tank',
     'creditor_master',
     'c_transaction',
+    'calcmaster',
     'emp_paydetails',
+
     'cpayment',
     'vehicle',
     'supplierdetail',
