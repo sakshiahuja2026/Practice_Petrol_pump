@@ -4,20 +4,20 @@
 {% block extra_css %}
     <!-- Animation Css -->
     <link href="{% static 'plugins/animate-css/animate.css'%}" rel="stylesheet" />
+ <!-- Bootstrap Select Css -->
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet" />
 
     <!-- Sweet Alert Css -->
     <link href="{% static 'plugins/sweetalert/sweetalert.css'%}" rel="stylesheet" />
 
-    <!-- Bootstrap Select Css -->
-    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet'%}" />
-
-
+      <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css'%}" rel="stylesheet" />
 
 
 {% endblock %}
 {% block body %}
             <!-- Basic Validation -->
-            <div class="row clearfix">
+                        <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
@@ -39,9 +39,10 @@
                             <form id="form_validation" method="POST">
                                 {% csrf_token %}
                                 <div class="form-group form-float">
+                                <label class="form-label">Nozzel no</label>
                                     <div class="form-line">
-                                        {% crispy_field form.nozzel_no  %}
-                                        <label class="form-label">nozzelno </label>
+                                        {% crispy_field form.nozzel_no %}
+
                                          {% if form.nozzel_no.errors %}
                                             {% for error in form.nozzel_no.errors %}
                                                 <div class="invalid-feedback">
@@ -52,9 +53,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                        {% crispy_field form.type 'class' 'form-control show-tick' %}
-                                        <label class="form-label">type</label>
+                                    <label class="form-label">Type</label>
+                                        {% crispy_field form.type %}
+
                                          {% if form.type.errors %}
                                             {% for error in form.type.errors %}
                                                 <div class="invalid-feedback">
@@ -62,12 +63,13 @@
                                                 </div>
                                             {% endfor %}
                                         {% endif %}
-                                    </div>
+
                                 </div>
                                 <div class="form-group form-float">
+                                <label class="form-label">Remark</label>
                                     <div class="form-line">
                                         {% crispy_field form.remark %}
-                                        <label class="form-label">remark</label>
+
                                         {% if form.remark.errors %}
                                             {% for error in form.remark.errors %}
                                                 <div class="invalid-feedback">
@@ -87,6 +89,28 @@
             <!-- #END# Basic Validation -->
 {% endblock %}
 {% block extra_js %}
+     <!-- Select Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js'%}"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="{% static 'plugins/node-waves/waves.js'%}"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="{% static 'plugins/autosize/autosize.js'%}"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
+
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/admin.js'%}"></script>
+    <script src="{% static 'js/pages/forms/basic-form-elements.js'%}"></script>
+
+    <!-- Demo Js -->
+    <script src="{% static 'js/demo.js'%}"></script>
      <!-- Jquery Validation Plugin Css -->
     <script src="{% static 'plugins/jquery-validation/jquery.validate.js'%}"></script>
 
@@ -101,8 +125,7 @@
      <!-- Moment Plugin Js -->
     <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
 
-    <!-- Select Plugin Js -->
-    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js'%}"></script>
+
 
 
 {% endblock %}

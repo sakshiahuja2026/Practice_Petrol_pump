@@ -19,6 +19,7 @@ from users.views import home
 from django.contrib.auth.views import LoginView,LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+from users.views import dashboard
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home',home,name="home-page"),
@@ -30,11 +31,12 @@ urlpatterns = [
     path("tank/",include("tank.urls")),
     path("creditor/",include("creditor_master.urls")),
     path("vehicle/",include("vehicle.urls")),
-    path("c_transaction/",include("c_transaction.urls")),
+    path("ctransaction/",include("c_transaction.urls")),
     path("cpayment/",include("cpayment.urls")),
-    path("supplierdetail/",include("supplierdetail.urls")),
+    path("ntransaction/",include("ntransaction.urls")),
     path("emp_paydetails/",include("emp_paydetails.urls")),
-
-    path("calcmaster/",include("calcmaster.urls"))
+    path("supplierdetail/",include("supplierdetail.urls")),
+    path("calcmaster/",include("calcmaster.urls")),
+    path("dashboard/", dashboard, name="dashboard")
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,243 @@
+% extends "users/layout.html" %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block body %}
+<div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                    </div>
+                    <div class="card card-about-me">
+
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        <i class="fa fa-birthday-cake"></i>Date
+                                    </div>
+                                    <div class="content">
+                                        {{ object.date }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">location_on</i>
+                                        Nozzel id
+                                    </div>
+                                    <div class="content">
+                                        {{ object.nozzelid }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Opening time
+                                    </div>
+                                    <div class="content">
+                                        {{ object.openingtime }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        closing time
+                                    </div>
+                                    <div class="content">
+                                        {{ object.closingtime }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Opening petrol in liter
+                                    </div>
+                                    <div class="content">
+                                        {{ object.openinglitpetrol }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        closing petrol in lit
+                                    </div>
+                                    <div class="content">
+                                        {{ object.closinglitpetrol }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Total petrol
+                                    </div>
+                                    <div class="content">
+                                        {{ object.totalprice }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Total petrol Price
+                                    </div>
+                                    <div class="content">
+                                        {{ object.totalpprice }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Lost Petrol
+                                    </div>
+                                    <div class="content">
+                                        {{ object.lostpetrol }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Lost petrol price
+                                    </div>
+                                    <div class="content">
+                                        {{ object.lostpetrolprice }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Total Diesel
+                                    </div>
+                                    <div class="content">
+                                        {{ object.totaldiesel }}
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Total diesel price
+                                    </div>
+                                    <div class="content">
+                                        {{ object.totaldprice }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Opening Diesel in lit
+                                    </div>
+                                    <div class="content">
+                                        {{ object.openinglitdiesel }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        closing Diesel in lit
+                                    </div>
+                                    <div class="content">
+                                        {{ object.closinglitdiesel }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Lost Diesel
+                                    </div>
+                                    <div class="content">
+                                        {{ object.lostdiesel }}
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Lost diesel price
+                                    </div>
+                                    <div class="content">
+                                        {{ object.lostdieselprice }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">edit</i>
+                                        amount
+                                    </div>
+                                    <div class="content">
+                                       {{ object.amount }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Paytm
+                                    </div>
+                                    <div class="content">
+                                        {{ object.paytm }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Googlepay
+                                    </div>
+                                    <div class="content">
+                                        {{ object.googlepay }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Card
+                                    </div>
+                                    <div class="content">
+                                        {{ object.card }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Phonepay
+                                    </div>
+                                    <div class="content">
+                                        {{ object.phonepay }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        Cash
+                                    </div>
+                                    <div class="content">
+                                        {{ object.cash }}
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        bank name
+                                    </div>
+                                    <div class="content">
+                                        {{ object.bankname }}
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        branch name
+                                    </div>
+                                    <div class="content">
+                                        {{ object.branchname }}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons"></i>
+                                        creditor Amount
+                                    </div>
+                                    <div class="content">
+                                        {{ object.Amount }}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+{% endblock %}

@@ -1,0 +1,599 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block extra_css %}
+    <!-- Animation Css -->
+    <link href="{% static 'plugins/animate-css/animate.css'%}" rel="stylesheet" />
+ <!-- Bootstrap Select Css -->
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet" />
+
+    <!-- Sweet Alert Css -->
+    <link href="{% static 'plugins/sweetalert/sweetalert.css'%}" rel="stylesheet" />
+
+      <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css'%}" rel="stylesheet" />
+    <!-- Bootstrap DatePicker Css -->
+    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css'%}" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+{#    <div class="block-header">#}
+{#                <h2>#}
+{#                    FORM VALIDATION#}
+{#                    <small>Taken from <a href="https://jqueryvalidation.org/" target="_blank">jqueryvalidation.org</a></small>#}
+{#                </h2>#}
+{#            </div>#}
+            <!-- Basic Validation -->
+                        <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Nozzel Transaction Entry Form</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <form id="form_validation" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group form-float">
+                                <label class="form-label">Date </label>
+                                    <div class="form-line">
+                                        {% crispy_field form.date 'class' 'datepicker' %}
+                                         {% if form.date.errors %}
+                                            {% for error in form.date.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                        <center>
+                                        <label class="form-label">TIMINGS</label>
+                                        </center>
+                                </div>
+                                <div class="form-group form-float">
+                                <label class="form-label">openingtime</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.openingtime %}
+
+                                         {% if form.openingtime.errors %}
+                                            {% for error in form.openingtime.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                <label class="form-label">closingtime</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.closingtime %}
+                                         {% if form.closingtime.errors %}
+                                            {% for error in form.closingtime.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                        <center>
+                                        <label class="form-label">NOZZEL INFORMATION</label>
+                                        </center>
+                                </div>
+                                <div class="form-group form-float">
+                                    <label class="form-label">Nozzel Id</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.nozzelid %}
+                                         {% if form.nozzelid.errors %}
+                                            {% for error in form.nozzelid.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="pc">
+                                        <center>
+                                        <label class="form-label">PETROL CALCULATION</label>
+                                        </center>
+                                </div>
+                                <div class="form-group form-float" id="openinglitpetrol">
+                                <label class="form-label">Opening liters of petrol</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.openinglitpetrol %}
+                                         {% if form.openinglitpetrol.errors %}
+                                            {% for error in form.openinglitpetrol.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="closinglitpetrol">
+                                <label class="form-label">Closing liters of petrol</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.closinglitpetrol %}
+                                         {% if form.closinglitpetrol.errors %}
+                                            {% for error in form.closinglitpetrol.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="totalpetrol">
+                                <label class="form-label">Total petrol used</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.totalpetrol %}
+                                        {% if form.totalpetrol.errors %}
+                                            {% for error in form.totalpetrol.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="totalpprice">
+                                <label class="form-label">Total petrol price </label>
+                                    <div class="form-line">
+                                        {% crispy_field form.totalpprice %}
+                                        {% if form.totalpprice.errors %}
+                                            {% for error in form.totalpprice.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="lostpetrol">
+                                <label class="form-label">Lost Petrol in liters</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.lostpetrol %}
+                                        {% if form.lostpetrol.errors %}
+                                            {% for error in form.lostpetrol.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="lostpetrolprice">
+                                <label class="form-label">Lost petrol price</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.lostpetrolprice %}
+                                        {% if form.lostpetrolprice.errors %}
+                                            {% for error in form.lostpetrolprice.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="dc">
+                                        <center>
+                                        <label class="form-label">DIESEL CALCULATION</label>
+                                        </center>
+                                </div>
+                                <div class="form-group form-float" id="openinglitdiesel">
+                                <label class="form-label">Opening liters of diesel</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.openinglitdiesel %}
+                                         {% if form.openinglitdiesel.errors %}
+                                            {% for error in form.openinglitdiesel.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="closinglitdiesel">
+                                <label class="form-label">Closing liter of diesel</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.closinglitdiesel %}
+                                         {% if form.closinglitdiesel.errors %}
+                                            {% for error in form.closinglitdiesel.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="totaldiesel">
+                                <label class="form-label">Total diesel</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.totaldiesel %}
+                                        {% if form.totaldiesel.errors %}
+                                            {% for error in form.totaldiesel.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="totaldprice">
+                                <label class="form-label">Total diesel price</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.totaldprice %}
+                                        {% if form.totaldprice.errors %}
+                                            {% for error in form.totaldprice.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="lostdiesel">
+                                <label class="form-label">Lost Diesel in liters</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.lostdiesel %}
+                                        {% if form.lostdiesel.errors %}
+                                            {% for error in form.lostdiesel.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="lostdieselprice">
+                                <label class="form-label">Lost diesel price</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.lostdieselprice %}
+                                        {% if form.lostdieselprice.errors %}
+                                            {% for error in form.lostdieselprice.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                        <center>
+                                        <label class="form-label">AMOUNT CALCULATION</label>
+                                        </center>
+                                </div>
+                                <div class="form-group form-float">
+                                <label class="form-label">Amount</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.amount %}
+                                         {% if form.amount.errors %}
+                                            {% for error in form.amount.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" >
+                                <label class="form-label">Cash</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.cash %}
+                                         {% if form.cash.errors %}
+                                            {% for error in form.cash.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" >
+                                <label class="form-label">Paytm</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.paytm %}
+                                         {% if form.paytm.errors %}
+                                            {% for error in form.paytm.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" >
+                                <label class="form-label">Googlepay</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.googlepay %}
+                                        {% if form.googlepay.errors %}
+                                            {% for error in form.googlepay.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" >
+                                <label class="form-label">Card</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.card %}
+                                        {% if form.card.errors %}
+                                            {% for error in form.card.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" >
+                                <label class="form-label">Phonepay</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.phonepay %}
+                                        {% if form.phonepay.errors %}
+                                            {% for error in form.phonepay.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="bankname">
+                                <label class="form-label">Bank name</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.bankname %}
+                                         {% if form.bankname.errors %}
+                                            {% for error in form.bankname.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" id="branchname">
+                                <label class="form-label">Branch Name</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.branchname %}
+
+                                         {% if form.branchname.errors %}
+                                            {% for error in form.branchname.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" >
+                                <label class="form-label">Creditor Amount</label>
+                                    <div class="form-line">
+                                        {% crispy_field form.creditoramount %}
+
+                                         {% if form.creditoramount.errors %}
+                                            {% for error in form.creditoramount.errors %}
+                                                <div class="invalid-feedback">
+                                                  {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+
+                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Validation -->
+{% endblock %}
+{% block extra_js %}
+      <!-- Select Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js'%}"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="{% static 'plugins/node-waves/waves.js'%}"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="{% static 'plugins/autosize/autosize.js'%}"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/admin.js'%}"></script>
+    <script src="{% static 'js/pages/forms/basic-form-elements.js'%}"></script>
+
+    <!-- Demo Js -->
+    <script src="{% static 'js/demo.js'%}"></script>
+     <!-- Jquery Validation Plugin Css -->
+    <script src="{% static 'plugins/jquery-validation/jquery.validate.js'%}"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="{% static 'plugins/jquery-steps/jquery.steps.js'%}"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{% static 'plugins/sweetalert/sweetalert.min.js'%}"></script>
+
+    <script src="{% static 'js/pages/forms/form-validation.js'%}"></script>
+
+     <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{%  static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js'%}"></script>
+
+    <!-- Bootstrap Datepicker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'%}"></script>
+     <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{%  static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js'%}"></script>
+    <script>
+         $('.datepicker').bootstrapMaterialDatePicker({
+        format: 'YYYY-MM-DD',
+        clearButton: true,
+        weekStart: 1,
+        time: false
+    });
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+         document.querySelector('#id_lostpetrol').onkeyup=function(){
+             fetch("http://127.0.0.1:8000/rates/petrolprice/")
+             .then(response => response.json())
+             .then(data => {
+
+                 console.log(data.petrol_price);
+                 let lostpp=document.querySelector('#id_lostpetrolprice');
+                 lostpp.value=data.petrol_price*this.value;
+             })
+         }
+        })
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+         document.querySelector('#id_lostdiesel').onkeyup=function(){
+             fetch("http://127.0.0.1:8000/rates/dieselprice/")
+             .then(response => response.json())
+             .then(data => {
+
+                 console.log(data.diesel_price);
+                 let lostdp=document.querySelector('#id_lostdieselprice');
+                 lostdp.value=data.diesel_price*this.value;
+             })
+         }
+        })
+    </script>
+
+    <script>
+
+        // hide and show
+        document.addEventListener('DOMContentLoaded',function(){
+         document.querySelector('#id_nozzelid').onchange=function(){
+
+             fetch(`http://127.0.0.1:8000/nozzel/camount/${this.value}`)
+             .then(response => response.json())
+             .then(data =>{
+                 if(data.diesel__sum != undefined)
+                 {
+                     console.log("inside diesel ");
+                     fetch("http://127.0.0.1:8000/rates/dieselprice/")
+                    .then(response => response.json())
+                    .then(data1 => {
+                        document.querySelector("#id_creditoramount").value = data.diesel__sum*data1.diesel_price;
+                    })
+                 }
+                 else {
+                     fetch("http://127.0.0.1:8000/rates/petrolprice/")
+                    .then(response => response.json())
+                    .then(data1 => {
+                        document.querySelector("#id_creditoramount").value = data.petrol__sum*data1.petrol_price;
+                    })
+                 }
+             })
+             fetch(`http://127.0.0.1:8000/nozzel/type/${this.value}`)
+             .then(response => response.json())
+             .then(data => {
+                    let type=data.type.toLowerCase();
+                    if(type=='petrol')
+                    {
+                        document.querySelector("#closinglitpetrol").style.display='block';
+                        document.querySelector("#lostpetrol").style.display='block';
+                        document.querySelector("#openinglitpetrol").style.display='block';
+                        document.querySelector("#totalpetrol").style.display='block';
+                        document.querySelector("#lostpetrolprice").style.display='block';
+                        document.querySelector("#totalpprice").style.display='block';
+                        document.querySelector("#pc").style.display='block';
+                        document.querySelector("#closinglitdiesel").style.display='none';
+                        document.querySelector("#lostdiesel").style.display='none';
+                        document.querySelector("#openinglitdiesel").style.display='none';
+                        document.querySelector("#totaldiesel").style.display='none';
+                        document.querySelector("#lostdieselprice").style.display='none';
+                        document.querySelector("#totaldprice").style.display='none';
+                        document.querySelector("#dc").style.display='none';
+                    }
+                    else if (type == 'diesel')
+                    {
+                        document.querySelector("#pc").style.display='none';
+                        document.querySelector("#closinglitpetrol").style.display='none';
+                        document.querySelector("#lostpetrol").style.display='none';
+                        document.querySelector("#openinglitpetrol").style.display='none';
+                        document.querySelector("#totalpetrol").style.display='none';
+                        document.querySelector("#lostpetrolprice").style.display='none';
+                        document.querySelector("#totalpprice").style.display='none';
+                        document.querySelector("#closinglitdiesel").style.display='block';
+                        document.querySelector("#lostdiesel").style.display='block';
+                        document.querySelector("#openinglitdiesel").style.display='block';
+                        document.querySelector("#totaldiesel").style.display='block';
+                        document.querySelector("#lostdieselprice").style.display='block';
+                        document.querySelector("#totaldprice").style.display='block';
+                        document.querySelector("#dc").style.display='block';
+
+                    }
+
+             })
+         }
+
+         //get total petrol
+
+
+        })
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded',function () {
+            document.querySelector('#id_closinglitpetrol').onkeyup = function () {
+                fetch("http://127.0.0.1:8000/rates/petrolprice/")
+                    .then(response => response.json())
+                    .then(data => {
+                        let olp = document.querySelector('#id_openinglitpetrol').value;
+                        let clp = document.querySelector('#id_closinglitpetrol').value;
+                        let lit = clp - olp
+
+                        document.querySelector('#id_totalpprice').value=data.petrol_price*lit;
+                        document.querySelector('#id_totalpetrol').value=lit;
+                    })
+            }
+        })
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',function () {
+            document.querySelector('#id_closinglitdiesel').onkeyup = function () {
+                fetch("http://127.0.0.1:8000/rates/dieselprice/")
+                    .then(response => response.json())
+                    .then(data => {
+                        let olp = document.querySelector('#id_openinglitdiesel').value;
+                        let clp = document.querySelector('#id_closinglitdiesel').value;
+                        let lit = clp - olp
+
+                        document.querySelector('#id_totaldprice').value=data.diesel_price*lit;
+                        document.querySelector('#id_totaldiesel').value=lit;
+                    })
+            }
+        })
+    </script>
+{% endblock %}

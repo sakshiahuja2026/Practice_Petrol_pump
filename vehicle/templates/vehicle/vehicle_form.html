@@ -4,6 +4,8 @@
 {% block extra_css %}
     <!-- Animation Css -->
     <link href="{% static 'plugins/animate-css/animate.css'%}" rel="stylesheet" />
+ <!-- Bootstrap Select Css -->
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet" />
 
     <!-- Sweet Alert Css -->
     <link href="{% static 'plugins/sweetalert/sweetalert.css'%}" rel="stylesheet" />
@@ -88,9 +90,9 @@
                                     </div>
                                 </div>
                             <div class="form-group form-float">
-                                    <div class="form-line">
+                                    <label class="form-label">Fuel Type</label>
                                         {% crispy_field form.fuel_type %}
-                                        <label class="form-label">fuel type</label>
+
                                          {% if form.fuel_type.errors %}
                                             {% for error in form.fuel_type.errors %}
                                                 <div class="invalid-feedback">
@@ -98,7 +100,7 @@
                                                 </div>
                                             {% endfor %}
                                         {% endif %}
-                                    </div>
+
                                 </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
@@ -136,6 +138,28 @@
             <!-- #END# Basic Validation -->
 {% endblock %}
 {% block extra_js %}
+     <!-- Select Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js'%}"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="{% static 'plugins/node-waves/waves.js'%}"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="{% static 'plugins/autosize/autosize.js'%}"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
+
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/admin.js'%}"></script>
+    <script src="{% static 'js/pages/forms/basic-form-elements.js'%}"></script>
+
+    <!-- Demo Js -->
+    <script src="{% static 'js/demo.js'%}"></script>
      <!-- Jquery Validation Plugin Css -->
     <script src="{% static 'plugins/jquery-validation/jquery.validate.js'%}"></script>
 

@@ -62,20 +62,20 @@
                                    {% for calcmaster in calcmasters %}
                                        <tr>
                                         <td>{{ calcmaster.date }}</td>
-                                        <td>{{ calcmaster.petrolbefore }}</td>
-                                        <td>{{ calcmaster.petrolafter }}</td>
+                                        <td>{{ calcmaster.ptank_open }}</td>
+                                        <td>{{ calcmaster.ptank_close }}</td>
+                                        <td>{{ calcmaster.dtank_open }}</td>
+                                        <td>{{ calcmaster.dtank_close }}</td>
+                                        <td>{{ calcmaster.totalpetrol }}</td>
+                                        <td>{{ calcmaster.totaldiesel }}</td>
                                         <td>{{ calcmaster.lostpetrol }}</td>
-                                        <td>{{ calcmaster.lostpetrolprice }}</td>
-                                        <td>{{ calcmaster.dieselbefore }}</td>
-                                        <td>{{ calcmaster.dieselafter }}</td>
                                         <td>{{ calcmaster.lostdiesel }}</td>
-                                        <td>{{ calcmaster.lostdieselprice }}</td>
 
-                                       <th>
+                                       <td>
                                            <a href="{% url 'calcmaster-update'  calcmaster.id %}" class="btn btn-info"> update</a>
                                            <a href="{% url 'calcmaster-delete'  calcmaster.id %}" class="btn btn-danger"> Delete</a>
                                            <a href="{% url 'calcmaster-detail'  calcmaster.id %}" class="btn btn-danger"> Detail</a>
-                                       </th>
+                                       </td>
 
                                        </tr>
                                    {% endfor %}

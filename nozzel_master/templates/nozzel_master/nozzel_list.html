@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Nozzel TABLE
+                                Nozzel Table
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -32,31 +32,31 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th>Nozzel_no</th>
+                                            <th>Number</th>
                                             <th>Type</th>
                                             <th>Remark</th>
-                                            <th> Action</th>
+                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Nozzel_no</th>
+                                            <th>Number</th>
                                             <th>Type</th>
                                             <th>Remark</th>
-                                            <th> Action</th>
+                                            <th>Action</th>
 
                                         </tr>
                                     </tfoot>
                                    <tbody>
-                                   {% for nozzels in nozzel %}
+                                   {% for nozzel_master in nozzel %}
                                        <tr>
-                                        <td>{{ nozzels.nozzel_no }}</td>
-                                        <td>{{ nozzels.type }}</td>
-                                        <td>{{ nozzels.remark }}</td>
+                                        <td>{{ nozzel_master.nozzel_no }}</td>
+                                        <td>{{ nozzel_master.type }}</td>
+                                        <td>{{ nozzel_master.remark }}</td>
                                        <th>
-                                           <a href="{% url 'nozzel-update'  nozzels.id %}" class="btn btn-info"> update</a>
-                                           <a href="{% url 'nozzel-delete'  nozzels.id %}" class="btn btn-danger"> Delete</a>
+                                           <a href="{% url 'nozzel-update'  nozzel_master.id %}" class="btn btn-info"> update</a>
+                                           <a href="{% url 'nozzel-delete'  nozzel_master.id %}" class="btn btn-danger"> Delete</a>
                                        </th>
 
                                        </tr>

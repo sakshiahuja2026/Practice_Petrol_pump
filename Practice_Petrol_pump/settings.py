@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'c_transaction',
     'calcmaster',
     'emp_paydetails',
-
+    'ntransaction',
     'cpayment',
     'vehicle',
     'supplierdetail',
